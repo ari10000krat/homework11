@@ -18,11 +18,14 @@ from django.urls import path
 from django.urls import include
 from editor.views import editor_index
 from post.views import post_index
+from tag.views import tag_index
 
 urlpatterns = [
-    path('editor/', editor_index),
-    path('app/editor/', include('editor.urls')),
-    path('post/', post_index),
-    path('app/post/', include('post.urls')),
+    path('editor/', include('editor.urls')),
+    path('app/editor/', editor_index),
+    path('post/', include('post.urls')),
+    path('app/post/', post_index),
+    path('tag/', include('tag.urls')),
+    path('app/tag/', tag_index),
     path('admin/', admin.site.urls)
 ]
