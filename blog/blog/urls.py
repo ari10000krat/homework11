@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from editor.views import editor_index
 from django.urls import include
+from editor.views import editor_index
+from post.views import post_index
 
 urlpatterns = [
     path('editor/', editor_index),
-    path('app/editor', include('editor.urls')),
+    path('app/editor/', include('editor.urls')),
+    path('post/', post_index),
+    path('app/post/', include('post.urls')),
     path('admin/', admin.site.urls)
 ]
